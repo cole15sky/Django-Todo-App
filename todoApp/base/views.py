@@ -1,4 +1,7 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+from django.views.generic.list import ListView
+from .models import Task
 
-def task_lists(request):
-    return HttpResponse('<h1>Todo List</h1> <p>This is your to-do list!</p>')
+class TaskList(ListView):
+    model = Task  
+    template_name = 'base/base.html'  
